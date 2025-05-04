@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="8U1KtGr66Iv0QeN8E6er" name="Page-1">
+        <mxGraphModel dx="933" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Orchestrator Node" style="swimlane;startSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="430" width="440" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="orchestrator" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry x="140" y="30" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="UI Node" style="swimlane;startSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="230" width="440" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="ui" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="4">
+                    <mxGeometry x="140" y="30" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Backend Node" style="swimlane;startSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="220" width="440" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="ui" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry x="140" y="30" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Broker Node" style="swimlane;startSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="620" width="440" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="ibkr-gateway" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="140" y="30" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Database Node" style="swimlane;startSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="620" width="440" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="db" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="13">
+                    <mxGeometry x="140" y="30" width="140" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
