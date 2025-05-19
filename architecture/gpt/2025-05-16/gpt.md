@@ -23,6 +23,20 @@ Can you create a zip file below or put the code into a coomon place where I can 
   * All setup scripts and run scripts to be created.
   * If you have more to create, feel free to add.
 
+-----
+
+Now the content adding for the microservice repository of "smtrader-infra" is in turn. 
+
+As we talked earlier, this repository should be production ready for a cloud deployment; this Kubernates setup should be deployable into a cloud server or Kubernates service like AWS Fargate 
+
+This repository, should also be deployable and easily runnable in my local computer - in the same way of or very close to (as much as posibble) the productive deployment.
+
+As you know, this microservice repository has a separate folder but stays in the same root folder like the other microservice repositories; it references required files from the other microservoce repositories' folder (dockerfiles, code files, bash scipts etc. whatever needed...).
+
+* I need to be created:
+  * All setup scripts and run scripts to be created.
+  * If you have more to create, feel free to add.
+
 ### smtrader-ui
 
 * This is the user interface microservice. It provides a Web UI there firstly I can list all my runnning nodes.
