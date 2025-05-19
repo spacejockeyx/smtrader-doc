@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smtrader-broker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smtrader-broker
+  template:
+    metadata:
+      labels:
+        app: smtrader-broker
+    spec:
+      containers:
+        - name: smtrader-broker
+          image: smtrader-broker:latest
+          ports:
+            - containerPort: 8001

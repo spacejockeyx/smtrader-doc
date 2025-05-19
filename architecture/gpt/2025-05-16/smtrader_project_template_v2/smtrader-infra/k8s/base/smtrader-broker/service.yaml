@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: smtrader-broker
+spec:
+  type: ClusterIP
+  selector:
+    app: smtrader-broker
+  ports:
+    - port: 8001
+      targetPort: 8001

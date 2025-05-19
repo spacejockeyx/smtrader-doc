@@ -1,0 +1,76 @@
+# Here is a complete Kubernetes deployment YAML for smtrader-data.yaml that:
+## Deploys a PostgreSQL database
+## Uses a PersistentVolumeClaim mounted from the local host
+## Includes readiness/liveness probes
+## Runs in the smtrader namespace
+
+# Notes
+## Database credentials are stored in a ConfigMap (consider a Secret for real prod).
+## Mounted path /var/lib/postgresql/data persists into your host via smtrader-local-pvc.
+## Probes ensure PostgreSQL is healthy and ready before allowing traffic.
+## Service exposes it to other pods within the cluster.
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: smtrader-data-config
+  namespace: smtrader
+data:
+  POSTGRES_DB: trader
+  POSTGRES_USER: traderadmin
+  POSTGRES_PASSWORD: securepass
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smtrader-data
+  namespace: smtrader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smtrader-data
+  template:
+    metadata:
+      labels:
+        app: smtrader-data
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: smtrader-data-config
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: smtrader-data-storage
+          readinessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 30
+            periodSeconds: 10
+      volumes:
+        - name: smtrader-data-storage
+          persistentVolumeClaim:
+            claimName: smtrader-local-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: smtrader-data
+  namespace: smtrader
+spec:
+  selector:
+    app: smtrader-data
+  ports:
+    - port: 5432
+      targetPort: 5432

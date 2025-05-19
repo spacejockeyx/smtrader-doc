@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smtrader-data
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smtrader-data
+  template:
+    metadata:
+      labels:
+        app: smtrader-data
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:14
+          env:
+            - name: POSTGRES_DB
+              value: smtrader
+            - name: POSTGRES_USER
+              value: trader
+            - name: POSTGRES_PASSWORD
+              value: traderpass
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-data
+          emptyDir: {}

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smtrader-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smtrader-ui
+  template:
+    metadata:
+      labels:
+        app: smtrader-ui
+    spec:
+      containers:
+        - name: smtrader-ui
+          image: smtrader-ui:latest
+          ports:
+            - containerPort: 3000

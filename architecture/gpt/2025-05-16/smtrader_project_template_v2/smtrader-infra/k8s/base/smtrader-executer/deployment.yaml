@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smtrader-executer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smtrader-executer
+  template:
+    metadata:
+      labels:
+        app: smtrader-executer
+    spec:
+      containers:
+        - name: smtrader-executer
+          image: smtrader-executer:latest
+          ports:
+            - containerPort: 8000

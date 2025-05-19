@@ -1,1 +1,3 @@
-# Placeholder for smtrader-infra/scripts/deploy_local.sh
+#!/bin/bash
+
+kubectl apply -k k8s/overlays/local
