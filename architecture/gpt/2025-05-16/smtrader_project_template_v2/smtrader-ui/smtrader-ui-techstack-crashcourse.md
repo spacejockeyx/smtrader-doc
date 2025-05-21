@@ -103,7 +103,7 @@ A fast dev server and build tool that replaces Webpack.
 ```bash
 npm install
 npm run dev      # start local dev server
-npm run build    # create production build
+npm run build    # create prod build
 ```
 
 ---

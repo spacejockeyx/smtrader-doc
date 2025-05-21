@@ -1,3 +1,8 @@
 #!/bin/bash
+set -e
 
-kubectl apply -k k8s/overlays/production
+echo "Starting production deployment..."
+
+kubectl apply -k ../k8s/overlays/prod
+
+

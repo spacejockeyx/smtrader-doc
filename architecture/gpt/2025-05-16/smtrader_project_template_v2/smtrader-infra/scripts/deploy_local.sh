@@ -1,3 +1,6 @@
 #!/bin/bash
+set -e
 
-kubectl apply -k k8s/overlays/local
+echo "Starting local deployment with kustomize..."
+
+kubectl apply -k ../k8s/overlays/local
