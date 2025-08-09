@@ -6,7 +6,7 @@
 * In a single ``smtrader-bot`` node, multiple ``strategy`` runs (multiple days; a single ``strategy`` run for a single day) are started.
 * ``strategy`` runs are multithreaded.
 * No order management is involved. In every strategy run, upon a signal, it's assumed that the order is always successful.
-* I'll visualize and analyse backtest results in my ``smtrader-ui``. So, the backtest results will be persisted in Pastgres DB.
+* I'll visualize and analyse backtest results in my ``smtrader-ui``. So, the backtest results will be persisted in ``Postgres`` DB.
 
 # Trader Backtest Flow
 
@@ -14,7 +14,8 @@
   * For a single ``symbol`` 
   * It could be 1 or more day(s), week(s), month(s) and year(s).
   * Load the data into an ``in memory DB``
-* Run a loop for every day in the historical data of the time window:
+* Run trader_backtest with a loop for every day in the historical data of the time window:
+  * Multithread: Every day is processed in different thread.  
   * This simulates your regular every day's real run in 1 min. intervals. 
   * Run tick() for every minute:
     * Load `historical stock data` with time window of max. ``2 hours``.

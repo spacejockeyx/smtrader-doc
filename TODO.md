@@ -1,5 +1,6 @@
 # Tasks
 
-* smtrader-bot: indicators calculator
-* smtrader-bot: Create real trader from simulated trader. Modes: BACKTEST, REAL
+* smtrader-bot: Persist Backtest Results in Postgres
+* smtrader-ui: Visualize whole backtest results; with ticker data, bolinger bands, SMAs, Signals. If you clieck a point, it shows more indicator data and rulle results etc.
+* 
 
